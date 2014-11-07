@@ -44,12 +44,6 @@ define uchiwa::api(
       \"path\": \"${path}\",
       \"timeout\": ${timeout}
     }"],
-    host    => $uchiwa::host,
-    port    => $uchiwa::port,
-    user    => $uchiwa::user,
-    pass    => $uchiwa::pass,
-    stats   => $uchiwa::stats,
-    refresh => $uchiwa::refresh
     },
   }
 

@@ -1,12 +1,26 @@
 {
   "sensu": [
     <%- 
-    apis = Array.new
-    @data['api'].each do |a|  
-      apis << a
-    end %>
-      <%= apis.join(",\n") %>
-    ],
+      apis = Array.new
+      if @data['api']
+        @data['api'].each do |a| 
+        apis << a
+        end
+      else
+        apis = ["{
+      \"name\": \"sensu\",
+      \"host\": \"127.0.0.1\",
+      \"port\": 4567,
+      \"ssl\": false,
+      \"user\": \"sensu\",
+      \"pass\": \"sensu\",
+      \"path\": \"\",
+      \"timeout\": 5000,
+    }"]
+      end
+    -%>
+    <%= apis.join(",\n") %>
+  ],
   "uchiwa": {
     "host": "<%= @data['host'] %>",
     "port": <%= @data['port'] %>,
