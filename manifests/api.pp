@@ -34,7 +34,7 @@ define uchiwa::api(
   datacat_fragment { "uchiwa-api-${name}":
     target  => '/etc/sensu/uchiwa.json',
     data    => {
-      api   => ["    {
+      api   => ["{
       \"name\": \"${title}\",
       \"host\": \"${host}\",
       \"port\": ${port},
